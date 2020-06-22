@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+<!--    <servlet>-->
+<!--        <servlet-name>AddServlet</servlet-name>-->
+<!--        <servlet-class>com.emirates.AddServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>AddServlet</servlet-name>-->
+<!--        <url-pattern>/add</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>SquaredServlet</servlet-name>-->
+<!--        <servlet-class>com.emirates.SquaredServlet</servlet-class>-->
+
+<!--        <init-param>-->
+<!--            <param-name>name</param-name>-->
+<!--            <param-value>Raghav-SquaredServlet</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>SquaredServlet</servlet-name>-->
+<!--        <url-pattern>/squared</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>MyServlet</servlet-name>-->
+<!--        <servlet-class>com.emirates.MyServlet</servlet-class>-->
+<!--&lt;!&ndash;    this is the way to specify servlet config. its specific to a particular servlet only&ndash;&gt;-->
+<!--        <init-param>-->
+<!--            <param-name>name</param-name>-->
+<!--            <param-value>Raghav-MyServlet</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>MyServlet</servlet-name>-->
+<!--        <url-pattern>/my</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    this is the way to specify servlet context. its common for all servlets.-->
+<!--    it mey be used to store some common info like the file path or the database path etc.-->
+
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>Raghav</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>phone</param-name>
+        <param-value>Samsung</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>ExceptionDemoJsp</servlet-name>
+        <jsp-file>/ExceptionHandlingDemo.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExceptionDemoJsp</servlet-name>
+        <url-pattern>/exception-demo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FilterDemoJsp</servlet-name>
+        <jsp-file>/FilterDemoForm.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilterDemoJsp</servlet-name>
+        <url-pattern>/filter-demo</url-pattern>
+    </servlet-mapping>
+
+</web-app>
