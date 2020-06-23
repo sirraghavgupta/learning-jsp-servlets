@@ -1,0 +1,28 @@
+in this project, i am not following the best practices and not even the folder structure.
+so, i am writing a brief discussion of the flow of the urls and the servlet classes.
+
+/ -> index.jsp - starting page - leads to add.jsp.
+AddServlet -> SquaredServlet was executing after submitting the form in index file, but later we replaced
+that with add.jsp just to show that we can do this with jsp also. so, they are just not been used right now, but
+we can change the mapping anytime.
+
+/jstl-demo -> JSTLDemoServlet -> jstlDemo.jsp
+
+/exception-demo -> ExceptionHandlingDemo.jsp -> ErrorPage.jsp
+
+/filter-demo -> AddUserServlet with 2 filters AddUserAgeFilter and AddUserNameFilter
+
+/my -> servletContext and servletConfig demo
+
+/login -> login form page login.jsp -> AuthServlet with AuthFilter and used AuthDao also.
+
+/logout -> to logout the user
+
+/welcome -> landing page if user logs in successfully.
+
+/videos -> demo page for only the authenticated users.
+
+ - Student class is just a POJO for demo use.
+ - Now, i have mentioned comments extensively in the project. I have annotations and web.xml too.
+   see them also.
+
