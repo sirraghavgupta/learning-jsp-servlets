@@ -15,7 +15,6 @@ import java.io.PrintWriter;
 @WebServlet(name = "SquaredServlet", urlPatterns = "/squared", initParams = {
         @WebInitParam(name="name", value = "Raghav-SquaredServlet"),
 })
-//@WebServlet("/my")
 public class SquaredServlet extends HttpServlet {
 
 // LEVEL 1,2,3 ===========================
