@@ -18,7 +18,8 @@
 
     <%--
     this is the syntax of the expression language which helps us to use the parameters and attributes
-    directly and we need not extract them from the request object by request.getAttribute().
+    directly and we need not extract them from the request object by request.getAttribute() and even
+    from the session object also.
     --%>
     ${student}
 
@@ -31,7 +32,12 @@
     core tags, formatting tags, sql tags, xml tags and jstl functions.
     its not recommended to use the jstl sql tags as we must not access the db from the jsp.
     --%>
+
+    <%-- will be converted to out.print finally. --%>
     <c:out value="raghav" /> <br>
+
+    <c:set var="str" value="Raghav Gupta is an IT aspirant. He is highly ambitious."></c:set>
+    ${str}<br>
 
     <c:forEach items="${students}" var="s" >
         ${s}
@@ -41,7 +47,7 @@
     <%--
     here, we see that how to use the jstl sql tags. and how to connect to the database using this.
     we need to provide all these attributes.
-    rs means result set here. we can use any name. then we iterate over the rs.rows and then get the data.
+    rs means result set here. we can use any name. then we iterate over the rs. rows and then get the data.
     --%>
     <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/student" user="root"  />
         <sql:query var="rs" dataSource="${db}">select * from studmarks</sql:query>
@@ -54,9 +60,6 @@
 
 
     <%-- lets see the JSTL FUNCTIONS. --%>
-    <c:set var="str" value="Raghav Gupta is an IT aspirant. He is highly ambitious."></c:set>
-    ${str}<br>
-
     <c:out value="================================="></c:out><br>
 
     ${fn:startsWith(str, "raghav")}<br>

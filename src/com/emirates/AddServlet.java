@@ -59,8 +59,8 @@ public class AddServlet extends HttpServlet {
 //
 //        req.setAttribute("val", result);
 //        // this is one way to call another servlet from one servlet.
-//        // ot doesnt change the url on the browser.
-//        // pass the values if required, by the setAttribute()
+//        // it doesnt change the url on the browser.
+//        // we can easily pass the values if required, by the setAttribute() as we are forwarding the same request and response objects.
 //        RequestDispatcher dispatcher = req.getRequestDispatcher("/squared");
 //        dispatcher.forward(req, resp);
 //    }
@@ -76,7 +76,7 @@ public class AddServlet extends HttpServlet {
     * in the request dispatcher, we forward the request to another servlet and use the same req and resp
     * objects as in first servlet. in this, the browser is not aware of this req forwarding and doesnt get
     * to know that the response has come from another servlet because no redirection is there.
-    * adv is that - we can pass data from servlet 1 to servlet 2.
+    * advantage is that - we can pass data from servlet 1 to servlet 2.
     * no url change is reflected.
     *
     * but, if i want to make it aware of this, then we use sendRedirect() .
@@ -107,9 +107,13 @@ public class AddServlet extends HttpServlet {
 //
 //        /*
 //         * the session object is made universally available by the TOMCAT server. we can get and set the
-//         * attributes and they will be available everywhere. we can also remove the attributes from the
+//         * attributes and it will be available everywhere. we can also remove the attributes from the
 //         * session.
-//         * HttpSession is an interface whose implementation is provided by the TOMCAT server./
+//         * HttpSession is an interface whose implementation is provided by the TOMCAT server.
+//         * getSession will by default return the session object if its available.
+//         * else, it will create a new one and then return.
+//         * we can do - getSession(false) if we don't want to create one.
+//         */
 //        HttpSession session = req.getSession();
 //        session.setAttribute("val", result);
 //        resp.sendRedirect(req.getContextPath() + "/squared");
@@ -133,7 +137,7 @@ public class AddServlet extends HttpServlet {
         * the browser sends the cookies along with the request. it sends all the cookies corresponding
         * to our domain in the form of an array because it doesnt know which cookie to send and which
         * not. when the client first hits the servlet, we give him a cookie. from next time, we
-        * get our own cookie also.*/
+        * get our own cookie also. but it sends the cookies associated with OUR domain only. */
         Cookie cookie = new Cookie("val", result+"");
         resp.addCookie(cookie);
         resp.sendRedirect(req.getContextPath() + "/squared");
@@ -146,7 +150,7 @@ public class AddServlet extends HttpServlet {
  * 20map.
  *
  * whenever we send a request first time to the server [like tomcat], it creates a session object
- * for the corresponding user. and them it attaches a set-cookie header in the response of that
+ * for the corresponding user. and then it attaches a set-cookie header in the response of that
  * request - JESSIONID with a unique identifier of the session object. the session object is actually
  * a map to store diff info we require. now, the jsessionid is stored as a cookie in the browser and
  * is sent in all subsequent requests with the cookie header, so that the server identifies the
@@ -158,12 +162,5 @@ public class AddServlet extends HttpServlet {
  * session is stored in the server and cookie on the browser.
  * they are both used to maintain some info across multiple requests and responses.
  */
-
-
-
-
-
-
-
 
 }

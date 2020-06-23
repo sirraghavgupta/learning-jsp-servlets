@@ -28,6 +28,7 @@ public class MyServlet extends HttpServlet {
         // here we see that servlet context is same for all servlets and how to access it.
         // getServletContext() is available in the HttpServlet class.
         ServletContext servletContext = getServletContext();
+
 //        ServletContext servletContext = req.getServletContext();    // another way to get the object.
         String name = servletContext.getInitParameter("name");
         String phone = servletContext.getInitParameter("phone");

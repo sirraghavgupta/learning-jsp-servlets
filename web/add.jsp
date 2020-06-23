@@ -33,9 +33,10 @@ for some basic purposes, we can directly use jsps rather than the servlets.
 --%>
 </body>
 </html>
+
     <%--
     HOW IT WORKS?
-    the web servet like tomcat is a servlet container and it can only run servlets. so, jsp is also compiled
+    the web servlet like tomcat is a servlet container and it can only run servlets. so, jsp is also compiled
     to servlet in the end. we use that only for ease of writing. its very easy.
     now, the conversion works like this -
     the basic template of the servlet remains the same -- a class which extends HttpServlet and has the
@@ -49,7 +50,15 @@ for some basic purposes, we can directly use jsps rather than the servlets.
 
     we get some impicit objects inside a servlet like -
     response, request, session, application, config, page, pageContext, Exception
+
+
+    PAGE ------------------------ implicit object
+    This object is an actual reference to the instance of the page. It can be thought of as an
+    object that represents the entire JSP page.
+    The page object is really a direct synonym for the this object.
+
     --%>
+
 
     <%--
     DIRECTIVES IN JSP -
@@ -77,10 +86,18 @@ for some basic purposes, we can directly use jsps rather than the servlets.
             like - <fx:raghav>
     --%>
 
+
+
     <%--
     PAGE CONTEXT --------------- implicit object
-    pageContext is an implicit object which can be used to declare something which is scoped within the
-    current page only. its like the synonym of the this keyword. it refers to the current jsp page.
+    The pageContext object is an instance of a javax.servlet.jsp.PageContext object.
+    The pageContext object is used to represent the entire JSP page.
+    This object is intended as a means to access information about the page while avoiding most of the
+    implementation details.
+    This object stores references to the request and response objects for each request.
+    The application, config, session, and out objects are derived by accessing attributes of this object.
+    The pageContext object also contains information about the directives issued to the JSP page,
+    including the buffering information, the errorPageURL, and page scope.
 
     pageContext.setAttribute("name", "navin");
 
@@ -114,6 +131,7 @@ for some basic purposes, we can directly use jsps rather than the servlets.
     | application | Application scope objects can be accessed by all     |
     |             | JSP pages in a given context.                        |
     +-------------+------------------------------------------------------+
+
 
     --%>
 
