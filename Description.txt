@@ -1,5 +1,8 @@
-in this project, i am not following the best practices and not even the folder structure.
-so, i am writing a brief discussion of the flow of the urls and the servlet classes.
+This project is just an implementation of various concepts of jsp and servlets. i have also used jstl
+and jdbc. Videos seen from Telusko learnings channel.
+
+In this project, i am not following the best practices and not even the folder structure.
+So, i am writing a brief discussion of the flow of the urls and the servlet classes.
 
 / -> index.jsp - starting page - leads to add.jsp.
 AddServlet -> SquaredServlet was executing after submitting the form in index file, but later we replaced
